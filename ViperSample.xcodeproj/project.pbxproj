@@ -17,6 +17,9 @@
 		24AE255D27A2DECF00F2BCEF /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AE255C27A2DECF00F2BCEF /* HomeTableViewCell.xib */; };
 		24AE256027A2DF1400F2BCEF /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE255F27A2DF1400F2BCEF /* HomeTableViewCell.swift */; };
 		24AE256327A2E02E00F2BCEF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AE256227A2E02E00F2BCEF /* HomeViewController.xib */; };
+		24AE256827A43DE200F2BCEF /* GetPokemonArrayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE256727A43DE200F2BCEF /* GetPokemonArrayUseCase.swift */; };
+		24AE256A27A43E2A00F2BCEF /* GetPokemonByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE256927A43E2A00F2BCEF /* GetPokemonByIdUseCase.swift */; };
+		24AE256C27A43E5300F2BCEF /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AE256B27A43E5300F2BCEF /* UseCaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		24AE255C27A2DECF00F2BCEF /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		24AE255F27A2DF1400F2BCEF /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		24AE256227A2E02E00F2BCEF /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		24AE256727A43DE200F2BCEF /* GetPokemonArrayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemonArrayUseCase.swift; sourceTree = "<group>"; };
+		24AE256927A43E2A00F2BCEF /* GetPokemonByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemonByIdUseCase.swift; sourceTree = "<group>"; };
+		24AE256B27A43E5300F2BCEF /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,9 @@
 		24AE255B27A2DDD300F2BCEF /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				24AE256727A43DE200F2BCEF /* GetPokemonArrayUseCase.swift */,
+				24AE256927A43E2A00F2BCEF /* GetPokemonByIdUseCase.swift */,
+				24AE256B27A43E5300F2BCEF /* UseCaseProtocol.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -318,9 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AE256827A43DE200F2BCEF /* GetPokemonArrayUseCase.swift in Sources */,
+				24AE256C27A43E5300F2BCEF /* UseCaseProtocol.swift in Sources */,
 				24AE252F27A2DCA500F2BCEF /* HomeViewController.swift in Sources */,
 				24AE252B27A2DCA500F2BCEF /* AppDelegate.swift in Sources */,
 				24AE256027A2DF1400F2BCEF /* HomeTableViewCell.swift in Sources */,
+				24AE256A27A43E2A00F2BCEF /* GetPokemonByIdUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
