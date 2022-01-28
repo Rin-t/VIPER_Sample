@@ -8,22 +8,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Upk-NG-qId">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTableViewCell" id="Upk-NG-qId" customClass="HomeTableViewCell" customModule="ViperSample" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Upk-NG-qId" id="8LG-Fw-RiT">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASo-3V-vkz">
-                        <rect key="frame" x="186" y="12" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASo-3V-vkz">
+                        <rect key="frame" x="10" y="0.0" width="404" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ASo-3V-vkz" secondAttribute="bottom" id="3Yu-20-f4Y"/>
+                    <constraint firstAttribute="trailing" secondItem="ASo-3V-vkz" secondAttribute="trailing" id="91h-L9-nTB"/>
+                    <constraint firstItem="ASo-3V-vkz" firstAttribute="leading" secondItem="8LG-Fw-RiT" secondAttribute="leading" constant="10" id="s3A-xN-JUU"/>
+                    <constraint firstItem="ASo-3V-vkz" firstAttribute="top" secondItem="8LG-Fw-RiT" secondAttribute="top" id="xHn-48-mAg"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="ASo-3V-vkz" id="xU3-dv-FiM"/>
+            </connections>
             <point key="canvasLocation" x="393" y="48"/>
         </tableViewCell>
     </objects>

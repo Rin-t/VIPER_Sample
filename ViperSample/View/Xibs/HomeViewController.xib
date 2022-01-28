@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ViperSample" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="EIT-qh-hcH" id="m5P-jV-RIX"/>
                 <outlet property="view" destination="iN0-l3-epB" id="A7g-R4-4Jd"/>
             </connections>
         </placeholder>
