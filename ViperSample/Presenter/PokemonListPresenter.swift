@@ -20,20 +20,39 @@ protocol PokemonListViewProtocol: AnyObject {
 
 class PokemonListPresenter {
 
-    weak var view: PokemonListViewProtocol!
+    struct Dependency {
+        let router: PokemonListRouterProtocol!
+        let getPokemonArrayUseCase: UseCase<Void, [PokemonEntity], Error>
+    }
 
-    init(view: PokemonListViewProtocol) {
+    weak var view: PokemonListViewProtocol!
+    private var di: Dependency
+
+    init(view: PokemonListViewProtocol, inject dependency: Dependency) {
         self.view = view
+        self.di = dependency
     }
 }
 
 extension PokemonListPresenter: PokemonListPresenterProtocol {
     
     func didLoad() {
-        <#code#>
+        di.getPokemonArrayUseCase.excute(()) { [weak self] result in
+            switch result {
+            case .success(let pokemonEntities):
+                if pokemonEntities.isEmpty {
+                    self?.view.showEmpty()
+                    return
+                }
+                self?.view.showPokemon(pokemonEntities)
+            case .failure(let error):
+                self?.view.showError(error)
+            }
+        }
     }
 
     func didSelect(pokemonEntity: PokemonEntity) {
-        <#code#>
+        print(pokemonEntity.name)
+        di.router.pokemonDetail(pokemonEntity: pokemonEntity)
     }
 }
