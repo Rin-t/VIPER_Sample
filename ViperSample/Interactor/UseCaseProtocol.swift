@@ -23,8 +23,7 @@ class UseCase<Parameter, Success, Failure: Error> {
     init<T: UseCaseProtocol>(_ useCase: T) where
         T.Parameter == Parameter,
         T.Success == Success,
-        T.Failure == Failure
-    {
+        T.Failure == Failure {
         self.instance = UseCaseInstance(useCase)
     }
 }

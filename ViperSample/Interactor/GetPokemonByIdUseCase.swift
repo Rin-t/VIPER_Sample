@@ -10,4 +10,8 @@ import Foundation
 
 final class GetPokemonByIdUseCase {
     
+    func excute(_ parameter: Int, completion: ((Result<PokemonEntity, Error>) -> ())?) {
+        let res = PokemonEntity(name: "フシギダネ", id: 1)
+        completion?(.success(res))
+    }
 }
