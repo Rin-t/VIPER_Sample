@@ -13,7 +13,7 @@ protocol UseCaseProtocol where Failure: Error {
     associatedtype Success
     associatedtype Failure
 
-    func excute(_ parameter: Parameter, completion: ((Result<Success, Failure>) -> ())?)
+    func excute(_ parameter: Parameter, completion: ((Result<Success, Failure>) -> ())?) async throws
 }
 
 class UseCase<Parameter, Success, Failure: Error> {
@@ -25,6 +25,10 @@ class UseCase<Parameter, Success, Failure: Error> {
         T.Success == Success,
         T.Failure == Failure {
         self.instance = UseCaseInstance(useCase)
+    }
+
+    func excute(_ parameter: Parameter, completion: ((Result<Success, Failure>) -> ())?) {
+        instance.excute(parameter, completion: completion)
     }
 }
 
@@ -45,7 +49,13 @@ private extension UseCase {
         }
 
         override func excute(_ parameter: T.Parameter, completion: ((Result<T.Success, T.Failure>) -> ())?) {
-            useCase.excute(parameter, completion: completion)
+            Task {
+                do {
+                    try await useCase.excute(parameter, completion: completion)
+                } catch {
+                    print("error")
+                }
+            }
         }
     }
 }
