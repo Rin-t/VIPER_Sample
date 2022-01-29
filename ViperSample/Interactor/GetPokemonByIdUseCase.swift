@@ -7,10 +7,9 @@
 
 import Foundation
 
-
-final class GetPokemonByIdUseCase {
+final class GetPokemonByIdUseCase: UseCaseProtocol {
     
-    func excute(_ parameter: Int, completion: ((Result<PokemonEntity, Error>) -> ())?) {
+    func excute(_ parameter: Int, completion: ((Result<PokemonEntity, Error>) -> ())?) async throws {
         let res = PokemonEntity(name: "フシギダネ", id: 1)
         completion?(.success(res))
     }
