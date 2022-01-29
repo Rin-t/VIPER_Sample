@@ -11,7 +11,7 @@ final class PokemonListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifire)
+            tableView.register(PokemonListTableViewCell.nib(), forCellReuseIdentifier: PokemonListTableViewCell.identifire)
             tableView.delegate = self
             tableView.dataSource = self
         }
@@ -37,7 +37,7 @@ extension PokemonListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifire, for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PokemonListTableViewCell.identifire, for: indexPath) as! PokemonListTableViewCell
         cell.configure(pokemonEntities[indexPath.row])
         return cell
     }
