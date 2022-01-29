@@ -21,6 +21,15 @@ final class PokemonListRouter: PokemonListRouterProtocol {
     }
 
     func pokemonDetail(pokemonEntity: PokemonEntity) {
-        
+        let pokemonDetailViewController = PokemonDetailViewController()
+        print(pokemonEntity.name)
+        pokemonDetailViewController.pokemonEntity = pokemonEntity
+
+        pokemonDetailViewController.presenter = PokemonDetailPresenter(view: pokemonDetailViewController,
+                                                                       inject: PokemonDetailPresenter.Dependency(
+                                                                        getPokemonByIdUseCase: UseCase(GetPokemonByIdUseCase()))
+        )
+
+        view.show(pokemonDetailViewController, sender: nil)
     }
 }
