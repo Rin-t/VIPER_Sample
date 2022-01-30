@@ -17,7 +17,7 @@ final class PokemonListViewController: UIViewController {
         }
     }
 
-    private var presenter: PokemonListPresenterProtocol!
+    private var presenter: PokemonListPresentation!
     private var pokemonEntities = [PokemonEntity]()
 
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ final class PokemonListViewController: UIViewController {
         presenter = PokemonListPresenter(view: self,
                                          inject: PokemonListPresenter.Dependency(
                                             router: PokemonListRouter(view: self),
-                                            getPokemonArrayUseCase: UseCase(GetPokemonArrayUseCase()))
+                                            getPokemonArrayUseCase: FetchPokemonInteractor(FeatchPokemonArrayInteractor()))
         )
         presenter.didLoad()
     }
@@ -53,7 +53,7 @@ extension PokemonListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension PokemonListViewController: PokemonListViewProtocol {
+extension PokemonListViewController: PokemonListView {
     func showPokemon(_ pokemonEntities: [PokemonEntity]) {
         self.pokemonEntities = pokemonEntities
         DispatchQueue.main.async {

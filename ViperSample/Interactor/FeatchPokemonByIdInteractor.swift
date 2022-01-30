@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class GetPokemonByIdUseCase: UseCaseProtocol {
+final class FeatchPokemonByIdInteractor: FetchPokemonUseCase {
     
     func excute(_ parameter: Int, completion: ((Result<PokemonEntity, Error>) -> ())?) async throws {
         let res = PokemonEntity(name: "フシギダネ", id: 1)

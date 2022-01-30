@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol UseCaseProtocol where Failure: Error {
+protocol FetchPokemonUseCase where Failure: Error {
     associatedtype Parameter
     associatedtype Success
     associatedtype Failure
@@ -16,11 +16,11 @@ protocol UseCaseProtocol where Failure: Error {
     func excute(_ parameter: Parameter, completion: ((Result<Success, Failure>) -> ())?) async throws
 }
 
-class UseCase<Parameter, Success, Failure: Error> {
+class FetchPokemonInteractor<Parameter, Success, Failure: Error> {
 
     private let instance: UseCaseInstanceBase<Parameter, Success, Failure>
 
-    init<T: UseCaseProtocol>(_ useCase: T) where
+    init<T: FetchPokemonUseCase>(_ useCase: T) where
         T.Parameter == Parameter,
         T.Success == Success,
         T.Failure == Failure {
@@ -32,7 +32,7 @@ class UseCase<Parameter, Success, Failure: Error> {
     }
 }
 
-private extension UseCase {
+private extension FetchPokemonInteractor {
 
     class UseCaseInstanceBase<Parameter, Success, Failure: Error> {
         func excute(_ parameter: Parameter, completion: ((Result<Success, Failure>) -> ())?) {
@@ -40,7 +40,7 @@ private extension UseCase {
         }
     }
 
-    class UseCaseInstance<T: UseCaseProtocol>: UseCaseInstanceBase<T.Parameter, T.Success, T.Failure> {
+    class UseCaseInstance<T: FetchPokemonUseCase>: UseCaseInstanceBase<T.Parameter, T.Success, T.Failure> {
 
         private let useCase: T
 

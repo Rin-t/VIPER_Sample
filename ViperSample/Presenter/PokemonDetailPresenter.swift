@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol PokemonDetailPresenterProtocol: AnyObject {
+protocol PokemonDetailPresentation: AnyObject {
 
     func didLoad(pokemonEntity: PokemonEntity)
 }
 
-protocol PokemonDetailViewProtocol: AnyObject {
+protocol PokemonDetailView: AnyObject {
     func showPokemon(_ pokemonEntity: PokemonEntity)
     func showError(_ error: Error)
 }
@@ -20,19 +20,19 @@ protocol PokemonDetailViewProtocol: AnyObject {
 class PokemonDetailPresenter {
 
     struct Dependency {
-        let getPokemonByIdUseCase: UseCase<Int, PokemonEntity, Error>
+        let getPokemonByIdUseCase: FetchPokemonInteractor<Int, PokemonEntity, Error>
     }
 
-    weak var view : PokemonDetailViewProtocol!
+    weak var view : PokemonDetailView!
     private var di: Dependency
 
-    init(view: PokemonDetailViewProtocol, inject dependency: Dependency) {
+    init(view: PokemonDetailView, inject dependency: Dependency) {
         self.view = view
         self.di = dependency
     }
 }
 
-extension PokemonDetailPresenter: PokemonDetailPresenterProtocol {
+extension PokemonDetailPresenter: PokemonDetailPresentation {
 
     func didLoad(pokemonEntity: PokemonEntity) {
         di.getPokemonByIdUseCase.excute(pokemonEntity.id) { [weak self] result in

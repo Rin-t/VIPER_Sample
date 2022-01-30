@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol PokemonListPresenterProtocol: AnyObject {
+protocol PokemonListPresentation: AnyObject {
     func didLoad()
     func didSelect(pokemonEntity: PokemonEntity)
 }
 
-protocol PokemonListViewProtocol: AnyObject {
+protocol PokemonListView: AnyObject {
     func showPokemon(_ pokemonEntities: [PokemonEntity])
     func showEmpty()
     func showError(_ error: Error)
@@ -21,20 +21,20 @@ protocol PokemonListViewProtocol: AnyObject {
 class PokemonListPresenter {
 
     struct Dependency {
-        let router: PokemonListRouterProtocol!
-        let getPokemonArrayUseCase: UseCase<Void, [PokemonEntity], Error>
+        let router: PokemonListRouterWireFrame!
+        let getPokemonArrayUseCase: FetchPokemonInteractor<Void, [PokemonEntity], Error>
     }
 
-    weak var view: PokemonListViewProtocol!
+    weak var view: PokemonListView!
     private var di: Dependency
 
-    init(view: PokemonListViewProtocol, inject dependency: Dependency) {
+    init(view: PokemonListView, inject dependency: Dependency) {
         self.view = view
         self.di = dependency
     }
 }
 
-extension PokemonListPresenter: PokemonListPresenterProtocol {
+extension PokemonListPresenter: PokemonListPresentation {
     
     func didLoad() {
         di.getPokemonArrayUseCase.excute(()) { [weak self] result in

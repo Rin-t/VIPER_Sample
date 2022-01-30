@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-protocol PokemonListRouterProtocol: AnyObject {
+protocol PokemonListRouterWireFrame: AnyObject {
     func pokemonDetail(pokemonEntity: PokemonEntity)
 }
 
-final class PokemonListRouter: PokemonListRouterProtocol {
+final class PokemonListRouter: PokemonListRouterWireFrame {
 
     weak var view: UIViewController!
 
@@ -27,7 +27,7 @@ final class PokemonListRouter: PokemonListRouterProtocol {
 
         pokemonDetailViewController.presenter = PokemonDetailPresenter(view: pokemonDetailViewController,
                                                                        inject: PokemonDetailPresenter.Dependency(
-                                                                        getPokemonByIdUseCase: UseCase(GetPokemonByIdUseCase()))
+                                                                        getPokemonByIdUseCase: FetchPokemonInteractor(FeatchPokemonByIdInteractor()))
         )
 
         view.show(pokemonDetailViewController, sender: nil)

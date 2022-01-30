@@ -15,18 +15,18 @@ final class PokemonDetailViewController: UIViewController {
     @IBOutlet private weak var idLabel: UILabel!
 
     var pokemonEntity: PokemonEntity!
-    var presenter: PokemonDetailPresenterProtocol!
+    var presenter: PokemonDetailPresentation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = PokemonDetailPresenter(view: self, inject: PokemonDetailPresenter.Dependency(getPokemonByIdUseCase: UseCase(GetPokemonByIdUseCase())))
+        presenter = PokemonDetailPresenter(view: self, inject: PokemonDetailPresenter.Dependency(getPokemonByIdUseCase: FetchPokemonInteractor(FeatchPokemonByIdInteractor())))
         presenter.didLoad(pokemonEntity: pokemonEntity)
         nameLabel.text = pokemonEntity.name
         idLabel.text = String(pokemonEntity.id)
     }
 }
 
-extension PokemonDetailViewController: PokemonDetailViewProtocol {
+extension PokemonDetailViewController: PokemonDetailView {
 
     func showPokemon(_ pokemonEntity: PokemonEntity) {
         // nameLabel.text = pokemonEntity.name

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class GetPokemonArrayUseCase: UseCaseProtocol {
+final class FeatchPokemonArrayInteractor: FetchPokemonUseCase {
 
     func excute(_ parameter: Void, completion: ((Result<[PokemonEntity], Error>) -> ())?) async throws {
         let pokemonIdRange = 1...151
