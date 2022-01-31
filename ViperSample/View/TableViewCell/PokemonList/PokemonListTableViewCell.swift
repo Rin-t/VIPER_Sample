@@ -7,13 +7,12 @@
 
 import UIKit
 
-
 final class PokemonListTableViewCell: UITableViewCell {
 
-    // outlets
+    // Outlets
     @IBOutlet private weak var nameLabel: UILabel!
 
-    // statics
+    // Statics
     static let identifire = "PokemonListTableViewCell"
     static func nib() -> UINib {
         UINib(nibName: identifire, bundle: nil)
@@ -23,5 +22,4 @@ final class PokemonListTableViewCell: UITableViewCell {
     func configure(_ pokemonEntity: PokemonEntity) {
         nameLabel.text = pokemonEntity.name
     }
-
 }

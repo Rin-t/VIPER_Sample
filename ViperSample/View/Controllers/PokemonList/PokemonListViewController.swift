@@ -9,6 +9,7 @@ import UIKit
 
 final class PokemonListViewController: UIViewController {
 
+    // IBOutlet
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(PokemonListTableViewCell.nib(), forCellReuseIdentifier: PokemonListTableViewCell.identifire)
@@ -17,11 +18,17 @@ final class PokemonListViewController: UIViewController {
         }
     }
 
+    // Propaties
     private var presenter: PokemonListPresentation!
     private var pokemonEntities = [PokemonEntity]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPresenter()
+    }
+
+    // Methods
+    private func setupPresenter() {
         presenter = PokemonListPresenter(view: self,
                                          inject: PokemonListPresenter.Dependency(
                                             router: PokemonListRouter(view: self),
@@ -31,6 +38,7 @@ final class PokemonListViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension PokemonListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokemonEntities.count
@@ -53,6 +61,7 @@ extension PokemonListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
+//MARK: - PokemonListView
 extension PokemonListViewController: PokemonListView {
     func showPokemon(_ pokemonEntities: [PokemonEntity]) {
         self.pokemonEntities = pokemonEntities

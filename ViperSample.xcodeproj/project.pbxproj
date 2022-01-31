@@ -100,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				24AE252E27A2DCA500F2BCEF /* PokemonListViewController.swift */,
-				24AE256227A2E02E00F2BCEF /* PokemonListViewController.xib */,
 			);
 			path = PokemonList;
 			sourceTree = "<group>";
@@ -109,9 +108,42 @@
 			isa = PBXGroup;
 			children = (
 				249F20B227A562F900A1F2A0 /* PokemonDetailViewController.swift */,
-				249F20B427A5630A00A1F2A0 /* PokemonDetailViewController.xib */,
 			);
 			path = PokemonDitail;
+			sourceTree = "<group>";
+		};
+		249F20B827A64DCA00A1F2A0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				249F20B027A5628900A1F2A0 /* PokemonList */,
+				249F20B127A562DB00A1F2A0 /* PokemonDitail */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		249F20B927A64DDD00A1F2A0 /* PokemonList */ = {
+			isa = PBXGroup;
+			children = (
+				24AE256227A2E02E00F2BCEF /* PokemonListViewController.xib */,
+			);
+			path = PokemonList;
+			sourceTree = "<group>";
+		};
+		249F20BA27A64DE500A1F2A0 /* PokemonDetail */ = {
+			isa = PBXGroup;
+			children = (
+				249F20B427A5630A00A1F2A0 /* PokemonDetailViewController.xib */,
+			);
+			path = PokemonDetail;
+			sourceTree = "<group>";
+		};
+		249F20BB27A64DF900A1F2A0 /* PokemonList */ = {
+			isa = PBXGroup;
+			children = (
+				24AE255F27A2DF1400F2BCEF /* PokemonListTableViewCell.swift */,
+				24AE255C27A2DECF00F2BCEF /* PokemonListTableViewCell.xib */,
+			);
+			path = PokemonList;
 			sourceTree = "<group>";
 		};
 		24AE251E27A2DCA500F2BCEF = {
@@ -170,6 +202,7 @@
 		24AE255A27A2DDC600F2BCEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				249F20B827A64DCA00A1F2A0 /* Controllers */,
 				24AE256127A2DF7D00F2BCEF /* Xibs */,
 				24AE255E27A2DEF900F2BCEF /* TableViewCell */,
 			);
@@ -189,8 +222,7 @@
 		24AE255E27A2DEF900F2BCEF /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				24AE255C27A2DECF00F2BCEF /* PokemonListTableViewCell.xib */,
-				24AE255F27A2DF1400F2BCEF /* PokemonListTableViewCell.swift */,
+				249F20BB27A64DF900A1F2A0 /* PokemonList */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -198,8 +230,8 @@
 		24AE256127A2DF7D00F2BCEF /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				249F20B127A562DB00A1F2A0 /* PokemonDitail */,
-				249F20B027A5628900A1F2A0 /* PokemonList */,
+				249F20BA27A64DE500A1F2A0 /* PokemonDetail */,
+				249F20B927A64DDD00A1F2A0 /* PokemonList */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
